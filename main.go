@@ -19,6 +19,7 @@ func main() {
 	http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("./mock/static"))))
 	http.HandleFunc("/login", login)
 	http.HandleFunc("/dashboard", dashboard)
+	http.HandleFunc("/users", users)
 	http.ListenAndServe(":8085", nil)
 }
 
@@ -32,6 +33,15 @@ func login(w http.ResponseWriter, r *http.Request) {
 
 func dashboard(w http.ResponseWriter, r *http.Request) {
 	files := append(layoutFiles(), "./mock/dashboard.html")
+	t := template.Must(template.ParseFiles(files...))
+	err := t.ExecuteTemplate(w, "bootstrap", nil)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+}
+
+func users(w http.ResponseWriter, r *http.Request) {
+	files := append(layoutFiles(), "./mock/users.html")
 	t := template.Must(template.ParseFiles(files...))
 	err := t.ExecuteTemplate(w, "bootstrap", nil)
 	if err != nil {
