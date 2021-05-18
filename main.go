@@ -22,6 +22,7 @@ func main() {
 	http.HandleFunc("/users", users)
 	http.HandleFunc("/usersadd", usersadd)
 	http.HandleFunc("/userprofile", userprofile)
+	http.HandleFunc("/customers", customers)
 	http.ListenAndServe(":8085", nil)
 }
 
@@ -62,6 +63,15 @@ func usersadd(w http.ResponseWriter, r *http.Request) {
 
 func userprofile(w http.ResponseWriter, r *http.Request) {
 	files := append(layoutFiles(), "./mock/user.html")
+	t := template.Must(template.ParseFiles(files...))
+	err := t.ExecuteTemplate(w, "bootstrap", nil)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+}
+
+func customers(w http.ResponseWriter, r *http.Request) {
+	files := append(layoutFiles(), "./mock/customers.html")
 	t := template.Must(template.ParseFiles(files...))
 	err := t.ExecuteTemplate(w, "bootstrap", nil)
 	if err != nil {

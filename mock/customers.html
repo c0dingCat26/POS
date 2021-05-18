@@ -1,0 +1,65 @@
+{{define "content"}}
+<div class="card">
+    <div class="card-header">
+        <button class="btn btn-sm btn-primary" onclick="resolve('/customers')"><i class="fas fa-user-plus"></i> New Customer</button>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+                <div class="form-inline">
+                    <label for="show">Show: &nbsp;</label>
+                    <select name="show" id="show" class="form-control form-control-sm">
+                        <option>10</option>
+                        <option>25</option>
+                        <option>50</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col">
+                <div class="export">
+                    <ul>
+                        <li><a href="#">Copy</a></li>
+                        <li><a href="#">CSV</a></li>
+                        <li><a href="#">Excel</a></li>
+                        <li><a href="#">PDF</a></li>
+                        <li><a href="#">Print</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-flex justify-content-end">
+                    <div class="form-inline">
+                        <label for="search">Search: &nbsp;</label>
+                        <input type="text" name="search" id="search" class="form-control form-control-sm" placeholder="Keyword">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table class="table table-striped table-bordered table-sm">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Contact No</th>
+                <th>Email</th>
+                <th>Invoice Status</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Abdul Saqib</td>
+                <td>+91 744 809 0627</td>
+                <td>saquibsqb31@gmail.com</td>
+                <td>Open</td>
+                <td></td>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <div class="pagination-wrapper">
+       {{template "pagination" .}}
+    </div>
+</div>
+{{end}}
