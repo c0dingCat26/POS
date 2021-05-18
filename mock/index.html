@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style/css/style.css">
+    <script src="style/jquery.js"></script>
+    <script src="style/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style/css/font_awesome.css">
+    <script src="style/js.js"></script>
+    <title>Analyzer - Dashboard</title>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="sidebar-wrapper">
+        <div class="logo">
+            <!-- <img src="images/logo.png"> -->
+        </div>
+        <div class="profile">
+            <img src="images/icon_profile.png">
+            <div class="profile-desc">
+                <p>Abdul Saqib<span><i class="fas fa-circle"></i>Admin</span></p>
+            </div>
+        </div>
+        <nav role="navigation">
+            <ul>
+                <li class="active"><a href="index.html"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                <li><a href="resolution.html"><i class="fab fa-resolving"></i><span>Resolutions</span><i class="fas fa-angle-left"></i></a></li>
+                <li><a href="health_check.html"><i class="fas fa-file-medical-alt"></i><span>Reports</span><i class="fas fa-angle-left"></i></a></li>
+                <li><a href="decline_report.html"><i class="fas fa-file-invoice"></i><span>User Management</span><i class="fas fa-angle-left"></i></a></li>
+                <li><a href="settings.html"><i class="fas fa-cogs"></i><span>Job Logger</span><i class="fas fa-angle-left"></i></a></li>
+                <li><a href="raise_ticket.html"><i class="fas fa-ticket-alt"></i><span>Store Logs</span><i class="fas fa-angle-left"></i></a></li>
+                <li><a href="documentation.html"><i class="fas fa-book"></i><span>Documentation</span><i class="fas fa-angle-left"></i></a></li>
+            </ul>
+        </nav>
+        <div class="network-manager">
+            <div class="network">
+                <a href="#"><i class="fab fa-facebook-square"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter-square"></i></a>
+                <a href="#"><i class="fab fa-google-plus-square"></i></a>
+                <!--<a href="#"><i class="fab fa-instagram"></i></a>-->
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="header-contents">
+            <div class="shortcuts">
+                <button class="btn btn-sm btn-link" onclick="resolve('health_check.html')"><i class="fas fa-file-medical-alt"></i>Health Check</button>
+                <button class="btn btn-sm btn-link" onclick="resolve('resolution.html')"><i class="fab fa-resolving"></i>Resolutions</button>
+                <button class="btn btn-sm btn-link" onclick="resolve('decline_summary.html')"><i class="fas fa-file-invoice"></i>Decline Summary</button>
+                <button class="btn btn-sm btn-link" onclick="resolve('settings.html')"><i class="fas fa-cogs"></i>Settings</button>
+                <a href="login.html"><i class="fas fa-power-off logout"></i></a>
+            </div>
+            <div class="page-title">
+                <img src="images/dashboard.png">
+                <div class="title">
+                    <p>Dashboard<span>Home</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="row">
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="info">
+                                <p>2<span>New Declines</span></p>
+                            </div>
+                            <img src="images/panel1.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="info">
+                                <p>7<span>Count Increases</span></p>
+                            </div>
+                            <img src="images/panel2.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="info">
+                                <p>4<span>Resolved This Month</span></p>
+                            </div>
+                            <img src="images/panel3.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="info">
+                                <p>11<span>Re-Opened This Month</span></p>
+                            </div>
+                            <img src="images/panel4.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="info">
+                                <p>Job Status<span>Below are today's Job status</span></p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <dl>
+                                <dt>Operational Report</dt>
+                                <dd><span>Status: Prepared (21 Sep 2019)</span>Next: 28 Sep 2019</dd>
+                                <dt>Decline Report</dt>
+                                <dd><span>Status: Prepare (Today 11:00 AM)</span>Next: Tomorrow 11:00 AM</dd>
+                                <dt>Key Exchange Report</dt>
+                                <dd><span>Status: Prepare (Today 11:00 AM)</span>Next: Tomorrow 11:00 AM</dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="info">
+                                <p>To Do<span>Temporary Notes</span></p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <dl>
+                                <dt>Call James</dt>
+                                <dd>Call james & discuss about order OD-212 <span class="mt-1"><a href="#">Mark as Done</a></span></dd>
+                            </dl>
+                            <dl>
+                                <dt>Call James</dt>
+                                <dd>Call james & discuss about order OD-212 <span class="mt-1"><a href="#">Mark as Done</a></span></dd>
+                            </dl>
+                            <button class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#ToDoModal">To Do</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="info">
+                                <p>Recent Reports<span>Recently generated reports</span></p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <dl>
+                                <dt>Epicor Operational Report</dt>
+                                <dd><span>Date: 12 Sep 2019</span>Clients: Trader Joes | VFC | GNC | Schnucks</dd>
+                                <dt>Epicor Operational Report</dt>
+                                <dd><span>Date: 12 Sep 2019</span>Clients: Trader Joes | VFC | GNC | Schnucks</dd>
+                                <dt>Epicor Operational Report</dt>
+                                <dd><span>Date: 12 Sep 2019</span>Clients: Trader Joes | VFC | GNC | Schnucks</dd>
+                                <dt>Epicor Operational Report</dt>
+                                <dd><span>Date: 12 Sep 2019</span>Clients: Trader Joes | VFC | GNC | Schnucks</dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="info">
+                                <p>Store Logs Status<span>Logs available for key exchange</span></p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <dl>
+                                <dt>Epicor Key Exchange</dt>
+                                <dd><span>Date: 12 Sep 2019</span>Clients: Trader Joes | VFC | GNC | Schnucks</dd>
+                                <dt>Epicor Key Exchange</dt>
+                                <dd><span>Date: 12 Sep 2019</span>Clients: Trader Joes | VFC | GNC | Schnucks</dd>
+                                <dt>Epicor Key Exchange</dt>
+                                <dd><span>Date: 12 Sep 2019</span>Clients: Trader Joes | VFC | GNC | Schnucks</dd>
+                                <dt>Epicor Key Exchange</dt>
+                                <dd><span>Date: 12 Sep 2019</span>Clients: Trader Joes | VFC | GNC | Schnucks</dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </div>
+        <div class="footer-wrapper">
+            <div class="footer">
+                <p>Copyright &copy; 2019. All rights reserved.</p>
+                <p>Design &amp; Developed by <a href="#">Abdul Saqib</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--To Do Modal-->
+<div id="ToDoModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form action="#" method="post">
+                    <div class="form-group form-row">
+                        <label for="name" class="col-sm-2 col-form-label">Title</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="name" id="name" class="form-control form-control-sm" placeholder="Title">
+                        </div>
+                    </div>
+                    <div class="form-group form-row">
+                        <label for="description" class="col-sm-2 col-form-label">Description</label>
+                        <div class="col-sm-10">
+                            <textarea name="description" id="description" class="form-control form-control-sm" rows="5" placeholder="Description"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-button offset-2">
+                        <button type="reset" class="btn btn-sm btn-primary">Cancel</button>
+                        <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
