@@ -16,14 +16,27 @@ func main() {
 		panic(err)
 	}
 
-	http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("./mock"))))
+	http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("./mock/static"))))
 	http.HandleFunc("/login", login)
+	http.HandleFunc("/dashboard", dashboard)
 	http.ListenAndServe(":8085", nil)
 }
 
 func login(w http.ResponseWriter, r *http.Request) {
 	t := template.Must(template.ParseFiles("./mock/login.html"))
-	t.ExecuteTemplate(w, "login", nil)
+	err := t.ExecuteTemplate(w, "login", nil)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+}
+
+func dashboard(w http.ResponseWriter, r *http.Request) {
+	files := append(layoutFiles(), "./mock/dashboard.html")
+	t := template.Must(template.ParseFiles(files...))
+	err := t.ExecuteTemplate(w, "bootstrap", nil)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
 }
 
 func layoutFiles() []string {
