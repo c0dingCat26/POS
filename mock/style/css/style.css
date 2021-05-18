@@ -1,0 +1,723 @@
+/*
+ * Title        : StockPile2
+ * Author       : Abdul Saqib
+ * Version      : 1.0.0
+ * Organization : Infected-Engineers (http://Infected-Engineers.in)
+ * Website      : https://infected-engineers.in/projects/StockPile2
+ * License      : GNU General Public License V3.0
+ * License URI  : https://www.gnu.org/licenses/gpl-3.0.txt
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:100,100i,300,300i,400,400i,500,500i,700,700i,800,800i,900,900i');
+/*
+==============================================
+                  HTML Tags
+==============================================
+*/
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    height: 100%;
+    background-color: #f1f3f6;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h1 {
+    color: rgb(55, 71, 103);
+    font-family: 'Alegreya Sans', sans-serif;
+    font-weight: 400;
+    word-spacing: 1px;
+    text-align: center;
+}
+
+p {
+    font-family: 'Alegreya Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+a:link,
+a:visited{
+    color: green;
+    font-family: 'Alegreya Sans', sans-serif;
+}
+
+a:hover {
+    color: limegreen;
+}
+
+form label {
+    color: rgb(55, 71, 103);
+    font-family: 'Alegreya Sans', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    word-spacing: 3px;
+}
+
+input[value] {
+    color: rgb(55, 71, 103);
+    font-family: 'Alegreya Sans', sans-serif;
+}
+
+nav {
+    font-family: 'Alegreya Sans', sans-serif;
+    font-weight: 500;
+    list-style-type: none;
+    margin-bottom: 85px;
+}
+
+nav ul {
+    margin-top: 30px;
+    padding: 0;
+}
+
+nav ul li span {
+    display: inline-block;
+    width: 175px;
+}
+
+nav ul li a i:first-child {
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 50px;
+}
+
+nav ul li a i:nth-child(3) {
+    font-size: 12px;
+}
+
+nav ul li {
+    line-height: 43px;
+}
+
+
+nav ul li a {
+    display: block;
+    font-size: 15px;
+    word-spacing: 3px;
+}
+
+nav ul li a:link,
+nav ul li a:visited {
+    color: #a6a6a6;
+}
+
+nav ul li a:hover {
+    background-color: #33383e;
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li.active > a {
+    border-left: 3px solid #37a000;
+    background-color: #33383e;
+    color: #ffffff;
+}
+
+nav .active i:first-child {
+    width: 48px; /* decrease left margin created due to left border of active class */
+}
+
+nav ul li > ul {
+    display: none;
+}
+
+nav ul li:hover > ul {
+    display: block;
+}
+
+nav ul li ul {
+    background-color: #1c1f22;
+    list-style: none;
+    margin: 0;
+}
+
+nav ul li ul li {
+    line-height: 32px;
+    padding-left: 43px;
+}
+
+nav ul li ul li:first-child {
+    padding-top: 5px;
+}
+
+nav ul li ul li:last-child {
+    padding-bottom: 10px;
+}
+
+nav ul li ul li a:hover {
+    background: none;
+}
+
+nav ul li ul li i {
+    width: 22px !important;
+}
+
+/*
+==============================================
+             Bootstrap Override
+==============================================
+*/
+
+.container-fluid {
+    min-height: 100%;
+    display: flex;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #32CD32;
+    outline: 0;
+    box-shadow: 0 0 0 1px rgba(0,128,0, 0.50);
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #008000;
+    border-color: #008000;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #32CD32;
+    border-color: #008000;
+}
+
+.btn-primary:active {
+    color: #fff;
+    background-color: #32CD32 !important;
+    border-color: #008000 !important;
+}
+
+.btn-primary:focus, .btn-primary.focus {
+    box-shadow: 0 0 0 1px rgba(0,128,0, 0.50) !important;
+}
+
+.btn-link {
+    border: 1px solid green;
+    color: 	#659E56;
+}
+
+.btn-link:hover {
+    border: 1px solid #008000;
+    background-color: #408F29;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.table {
+    margin-top: 16px;
+    margin-bottom: 0;
+}
+
+.table-sm th,
+.table-sm td {
+    padding: 8px;
+}
+
+.table-sm td .fa-edit {
+    color: #007bff;
+}
+
+.table-sm td .fa-trash-alt {
+    color: #dc3545;
+}
+
+.table-sm {
+    color: rgb(55, 71, 103);
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+
+.pagination-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+
+.pagination a {
+    color: #007bff;
+}
+
+.pagination .active {
+    background-color: #007bff;
+}
+
+.custom-file-label {
+    height: 33px; /* file input height */
+}
+
+.custom-file-label:after {
+    height: 31px; /* file input browse button height */
+}
+
+/*
+==============================================
+             Custom Style
+==============================================
+*/
+
+.form-login {
+    width: 330px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.form-button {
+    margin-top: 20px;
+}
+
+.form-button button {
+    margin-right: 5px;
+}
+
+.form-button a {
+    float: right;
+}
+
+.sidebar-wrapper {
+    background-color: #2c3136;
+    float: left;
+    min-width: 250px;
+    position: relative;
+}
+
+.logo {
+    height: 60px;
+    background-color: #41464A;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.logo img {
+    display: block;
+    width: 185px;
+    margin: auto;
+    padding-top: 10px;
+}
+
+.profile {
+    text-align: center;
+    padding-top: 22px;
+}
+
+.profile img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    border: 1px solid #4e555b;
+    padding: 5px; /* padding between image & image border */
+}
+
+.profile-desc {
+    margin-top: 8px;
+}
+
+.profile-desc p {
+    color: #ffffff;
+    font-family: 'Alegreya Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    word-spacing: 3px;
+}
+
+.profile-desc span > i {
+    font-size: 11px;
+    margin-right: 3px;
+}
+
+.profile-desc p span {
+    color: green;
+    display: block;
+    font-weight: normal;
+}
+
+.network-manager {
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.network {
+    background-color: #41464A;
+    font-size: 30px;
+    line-height: 56px;
+    text-align: center;
+}
+
+.content {
+    position: relative; /* to make footer stick to bottom as well as expantable with content */
+    min-height: 100%;
+    width: 100%;
+}
+
+.header-contents {
+    background-color: #fff;
+    min-height: 130px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.shortcuts {
+    background-color: #ffffff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    text-align: center;
+}
+
+.shortcuts button {
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    margin: 10px 2px 10px;
+}
+
+.logout {
+    color: rgba(0, 0, 0, 0.125);;
+    font-size: 20px;
+    float: right;
+    padding-top: 15px;
+    padding-right: 25px;
+}
+
+.logout:hover {
+    color: #33383e;
+}
+
+button > i {
+    margin-right: 5px;
+}
+
+.page-title {
+    padding-top: 3px;
+    padding-left: 12px;
+}
+
+.login-title img,
+.page-title img {
+    float: left;
+    height: 70px;
+    width: 70px;
+    margin-right: 16px;
+}
+
+.title {
+    padding-left: 75px;
+    padding-top: 8px;
+}
+
+.title p {
+    color: rgb(55, 71, 103);
+    font-family: 'Alegreya Sans', sans-serif;
+    font-weight: bold;
+    word-spacing: 1px;
+}
+
+.title p span {
+    color: #7a7a7a;
+    display: block;
+    font-size: 14px;
+}
+
+.page-title .title p {
+    font-size: 22px;
+}
+
+.login-title .title p {
+    font-size: 20px;
+}
+
+
+.main {
+    margin: 30px 35px 80px;
+}
+
+.main img {
+    width: 100%;
+}
+
+.main > .row:not(:first-child) {
+    margin-top: 25px;
+}
+
+.main .card-header button:not(:first-child) {
+    margin-left: 12px;
+}
+
+.main .card-body {
+    padding-bottom: 10px;
+}
+
+.main .card-body img {
+    margin-top: 20px;
+}
+
+.main .card-body dt {
+    font-size: 14px;
+    padding-top: 2px;
+}
+
+.main .card-body dd {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    font-size: 12px;
+    padding-bottom: 12px;
+}
+
+.main .card-body input,
+.main .card-body textarea,
+.main .card-body select,
+.main .card-body .custom-file {
+    max-width: 70%;
+}
+
+.card-footer > img {
+    width: 100%;
+}
+
+.main .about .picture {
+    width: 300px;
+    height: 300px;
+    float: left;
+}
+
+.main .about .picture img {
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    padding: 15px;
+    margin-top: 65px;
+    margin-bottom: auto;
+    ;
+}
+
+.main .about .picture p {
+    margin-top: 12px;
+    text-align: center;
+}
+
+.main .about form {
+    float: right;
+    width: 65%;
+    margin-top: 22px;
+}
+
+.main dt button {
+    float: right;
+}
+
+.main dd span {
+    display: block;
+}
+
+.main .billing img {
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    width: 220px;
+    padding: 10px;
+}
+
+.main .billing p {
+    color: rgb(55, 71, 103);
+    font-family: 'Alegreya Sans', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    word-spacing: 3px;
+}
+
+.main .billing form {
+    width: 80%;
+}
+
+.main .billing button {
+    margin-top: 10px;
+}
+
+tbody i {
+    margin-right: 10px;
+}
+
+.info p {
+    font-family: 'Alegreya Sans', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.info p span {
+    display: block;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.export ul {
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+    list-style: none;
+}
+
+.export ul li {
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-right: none;
+    display: inline-block;
+    padding: 5px 10px;
+}
+
+.export ul li:last-child {
+    border-right: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.export ul li a:link,
+.export ul li a:visited {
+    color: rgb(55, 71, 103);
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+}
+
+.export ul li:hover {
+    background-color: rgba(0, 0, 0, 0.125);;
+}
+
+.themes {
+    padding: 30px;
+}
+
+.themes .row:not(:first-child) {
+    margin-top: 40px;
+}
+
+.themes .card-body {
+    padding: 0;
+}
+
+.themes img {
+    margin: 0 !important;
+    width: 100%;
+}
+
+.themes p {
+    float: left;
+    font-family: 'Alegreya Sans', sans-serif;
+    font-size: 17px;
+}
+
+.themes button {
+    float: right;
+    margin-left: 8px;
+}
+
+.index p {
+    font-family: 'Alegreya Sans', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.index ul {
+    font-family: 'Alegreya Sans', sans-serif;
+    font-size: 16px;
+    list-style: disc;
+    padding-left: 12px;
+}
+
+.index ul > ul {
+    margin-bottom: 5px;
+    list-style: circle;
+}
+
+.error-wrapper {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -35%);
+}
+
+.error-wrapper p {
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.error-wrapper span {
+    font-size: 30px;
+    font-weight: normal;
+    display: block;
+}
+
+.display-section {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.dp {
+    position: relative; /* for picture modify icon */
+    text-align: center;
+}
+
+.dp > p {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.dp > img {
+    width: 180px;
+    height: 180px;
+    border: 1px solid #c8cbcf;
+    border-radius: 12px;
+    padding: 8px;
+}
+
+.dp:hover .edit {
+   display: block;
+}
+
+#section-contact {
+    display: none;
+}
+
+#section-history {
+    display: none;
+}
+
+#picture {
+    display: none;
+}
+
+.edit {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 28px;
+}
+
+.footer-wrapper {
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.footer {
+    background-color: #ffffff;
+    font-family: 'Alegreya Sans', sans-serif;
+    font-size: 16px;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+/*
+==============================================
+             Media Queries
+==============================================
+*/
+
+@media (max-device-width: 480px) {
+
+}

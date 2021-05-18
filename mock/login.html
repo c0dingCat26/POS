@@ -1,0 +1,51 @@
+{{define "login"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style/css/style.css">
+    <script src="style/jquery.js"></script>
+    <script src="style/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style/css/font_awesome.css">
+    <script src="style/js.js"></script>
+    <title>POS - Login</title>
+</head>
+<body>
+<div class="form-login">
+    <div class="card">
+        <div class="card-header">
+           <div class="login-title">
+               <img src="images/lock.png">
+               <div class="title">
+                   <p>Login to Your Account<span>Please Login</span></p>
+               </div>
+           </div>
+        </div>
+        <div class="card-body">
+            <form action="#" method="post">
+                <div class="form-group input-group-sm">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" class="form-control" placeholder="Email Address">
+                </div>
+                <div class="form-group input-group-sm">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" value="">Remember Me
+                    </label>
+                </div>
+                <div class="form-button">
+                    <button type="reset" class="btn btn-sm btn-primary">Clear</button>
+                    <button type="submit" class="btn btn-sm btn-primary">Login</button>
+                    <a href="#">Forgot Password</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+{{end}}
