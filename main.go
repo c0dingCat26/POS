@@ -22,6 +22,9 @@ func main() {
 	http.HandleFunc("/users", users)
 	http.HandleFunc("/usersadd", usersadd)
 	http.HandleFunc("/userprofile", userprofile)
+	http.HandleFunc("/customers", customers)
+	http.HandleFunc("/customeradd", customeradd)
+	http.HandleFunc("/customerprofile", customerprofile)
 	http.ListenAndServe(":8085", nil)
 }
 
@@ -62,6 +65,33 @@ func usersadd(w http.ResponseWriter, r *http.Request) {
 
 func userprofile(w http.ResponseWriter, r *http.Request) {
 	files := append(layoutFiles(), "./mock/user.html")
+	t := template.Must(template.ParseFiles(files...))
+	err := t.ExecuteTemplate(w, "bootstrap", nil)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+}
+
+func customers(w http.ResponseWriter, r *http.Request) {
+	files := append(layoutFiles(), "./mock/customers.html")
+	t := template.Must(template.ParseFiles(files...))
+	err := t.ExecuteTemplate(w, "bootstrap", nil)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+}
+
+func customeradd(w http.ResponseWriter, r *http.Request) {
+	files := append(layoutFiles(), "./mock/customer_add.html")
+	t := template.Must(template.ParseFiles(files...))
+	err := t.ExecuteTemplate(w, "bootstrap", nil)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+}
+
+func customerprofile(w http.ResponseWriter, r *http.Request) {
+	files := append(layoutFiles(), "./mock/customer.html")
 	t := template.Must(template.ParseFiles(files...))
 	err := t.ExecuteTemplate(w, "bootstrap", nil)
 	if err != nil {
