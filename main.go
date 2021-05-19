@@ -36,6 +36,7 @@ func main() {
 	http.HandleFunc("/modifyinvoice", modifyinvoice)
 	http.HandleFunc("/quotations", quotations)
 	http.HandleFunc("/addquotation", addquotation)
+	http.HandleFunc("/modifyquotation", modifyquotation)
 	http.ListenAndServe(":8085", nil)
 }
 
@@ -202,6 +203,15 @@ func quotations(w http.ResponseWriter, r *http.Request) {
 
 func addquotation(w http.ResponseWriter, r *http.Request) {
 	files := append(layoutFiles(), "./mock/addquotation.html")
+	t := template.Must(template.ParseFiles(files...))
+	err := t.ExecuteTemplate(w, "bootstrap", nil)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+}
+
+func modifyquotation(w http.ResponseWriter, r *http.Request) {
+	files := append(layoutFiles(), "./mock/modifyquotation.html")
 	t := template.Must(template.ParseFiles(files...))
 	err := t.ExecuteTemplate(w, "bootstrap", nil)
 	if err != nil {
