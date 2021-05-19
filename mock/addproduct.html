@@ -1,0 +1,75 @@
+{{define "content"}}
+<div class="card">
+    <div class="card-header">
+        <button class="btn btn-sm btn-primary" onclick="resolve('/products')"><i class="fas fa-users"></i> Products</button>
+    </div>
+    <div class="card-body">
+        <form action="#" method="post">
+            <div class="form-group form-row">
+                <label for="name" class="col-sm-2 col-form-label">Product Name</label>
+                <div class="col-sm-10">
+                    <input type="text" name="name" id="name" class="form-control form-control-sm" placeholder="Product Name">
+                </div>
+            </div>
+            <div class="form-group form-row">
+                <label for="sku" class="col-sm-2 col-form-label">SKU</label>
+                <div class="col-sm-10">
+                    <input type="text" name="sku" id="sku" class="form-control form-control-sm" placeholder="SKU">
+                </div>
+            </div>
+            <div class="form-group form-row">
+                <label for="role" class="col-sm-2 col-form-label">Supplier</label>
+                <div class="col-sm-10">
+                    <select class="form-control form-control-sm" name="role" id="role">
+                        <option hidden selected>Select Supplier</option>
+                        <option>LG</option>
+                        <option>Lenovo</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group form-row">
+                <label for="role" class="col-sm-2 col-form-label">Category</label>
+                <div class="col-sm-10">
+                    <select class="form-control form-control-sm" name="role" id="role">
+                        <option hidden selected>Select Category</option>
+                        <option>Product Type - A</option>
+                        <option>Product Type - B</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group form-row">
+                <label for="sell_price" class="col-sm-2 col-form-label">Sales Price</label>
+                <div class="col-sm-10">
+                    <input type="text" name="sell_price" id="sell_price" class="form-control form-control-sm" placeholder="Sell Price">
+                </div>
+            </div>
+            <div class="form-group form-row">
+                <label for="purchase_price" class="col-sm-2 col-form-label">Purchase Price</label>
+                <div class="col-sm-10">
+                    <input type="text" name="purchase_price" id="purchase_price" class="form-control form-control-sm" placeholder="Purchase Price">
+                </div>
+            </div>
+            <div class="form-group form-row">
+                <label for="opening_stock" class="col-sm-2 col-form-label">Opening Stock</label>
+                <div class="col-sm-10">
+                    <input type="text" name="opening_stock" id="opening_stock" class="form-control form-control-sm" placeholder="Opening Stock">
+                </div>
+            </div>
+            <div class="form-group form-row">
+                <label for="min_qty" class="col-sm-2 col-form-label">Minimum Qty</label>
+                <div class="col-sm-10">
+                    <input type="text" name="min_qty" id="min_qty" class="form-control form-control-sm" placeholder="Minimum Qty">
+                </div>
+            </div>
+            <div class="form-group form-row">
+                <label for="dp" class="col-sm-2 col-form-label">Product Picture</label>
+                <input type="file" class="form-control-file" id="dp">
+            </div>
+            <div class="form-button offset-2">
+                <button type="reset" class="btn btn-sm btn-primary">Cancel</button>
+                <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+{{end}}
