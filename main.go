@@ -39,6 +39,7 @@ func main() {
 	http.HandleFunc("/modifyquotation", modifyquotation)
 	http.HandleFunc("/settings/general", settings)
 	http.HandleFunc("/settings/notification", notificationSettings)
+	http.HandleFunc("/settings/authentication", authenticationSettings)
 	http.ListenAndServe(":8085", nil)
 }
 
@@ -231,7 +232,16 @@ func settings(w http.ResponseWriter, r *http.Request) {
 }
 
 func notificationSettings(w http.ResponseWriter, r *http.Request) {
-	files := append(layoutFiles(), "./mock/settings.html")
+	files := append(layoutFiles(), "./mock/notificationSettings.html")
+	t := template.Must(template.ParseFiles(files...))
+	err := t.ExecuteTemplate(w, "bootstrap", nil)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+}
+
+func authenticationSettings(w http.ResponseWriter, r *http.Request) {
+	files := append(layoutFiles(), "./mock/authenticationSettings.html")
 	t := template.Must(template.ParseFiles(files...))
 	err := t.ExecuteTemplate(w, "bootstrap", nil)
 	if err != nil {
