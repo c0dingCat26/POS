@@ -1,0 +1,16 @@
+`{{define "content"}}
+<div class="card">
+    <div class="card-header">
+        <button class="btn btn-sm btn-primary" onclick="resolve('/settings/general')"><i class="fas fa-cog"></i> General</button>
+        <button class="btn btn-sm btn-primary" onclick="resolve('/settings/notification')"><i class="fas fa-bell"></i> Notification</button>
+        <button class="btn btn-sm btn-primary" onclick="resolve('/settings/authentication')"><i class="fas fa-user-lock"></i> Authentication</button>
+        <button class="btn btn-sm btn-primary" onclick="resolve('/settings/apikey')"><i class="fas fa-key"></i> API Key</button>
+    </div>
+    <div class="card-body">
+        <h5>OpenID Configuration</h5>
+        <hr>
+        <h5>SAML Configuration</h5>
+        <hr>
+    </div>
+</div>
+{{end}}

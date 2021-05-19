@@ -37,6 +37,9 @@ func main() {
 	http.HandleFunc("/quotations", quotations)
 	http.HandleFunc("/addquotation", addquotation)
 	http.HandleFunc("/modifyquotation", modifyquotation)
+	http.HandleFunc("/settings/general", settings)
+	http.HandleFunc("/settings/notification", notificationSettings)
+	http.HandleFunc("/settings/authentication", authenticationSettings)
 	http.ListenAndServe(":8085", nil)
 }
 
@@ -212,6 +215,33 @@ func addquotation(w http.ResponseWriter, r *http.Request) {
 
 func modifyquotation(w http.ResponseWriter, r *http.Request) {
 	files := append(layoutFiles(), "./mock/modifyquotation.html")
+	t := template.Must(template.ParseFiles(files...))
+	err := t.ExecuteTemplate(w, "bootstrap", nil)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+}
+
+func settings(w http.ResponseWriter, r *http.Request) {
+	files := append(layoutFiles(), "./mock/settings.html")
+	t := template.Must(template.ParseFiles(files...))
+	err := t.ExecuteTemplate(w, "bootstrap", nil)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+}
+
+func notificationSettings(w http.ResponseWriter, r *http.Request) {
+	files := append(layoutFiles(), "./mock/notificationSettings.html")
+	t := template.Must(template.ParseFiles(files...))
+	err := t.ExecuteTemplate(w, "bootstrap", nil)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+}
+
+func authenticationSettings(w http.ResponseWriter, r *http.Request) {
+	files := append(layoutFiles(), "./mock/authenticationSettings.html")
 	t := template.Must(template.ParseFiles(files...))
 	err := t.ExecuteTemplate(w, "bootstrap", nil)
 	if err != nil {
