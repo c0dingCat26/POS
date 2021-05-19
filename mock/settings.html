@@ -1,0 +1,42 @@
+`{{define "content"}}
+<div class="card">
+    <div class="card-header">
+        <button class="btn btn-sm btn-primary" onclick="resolve('/settings/general')"><i class="fas fa-cog"></i> General</button>
+        <button class="btn btn-sm btn-primary" onclick="resolve('/settings/notification')"><i class="fas fa-bell"></i> Notification</button>
+        <button class="btn btn-sm btn-primary" onclick="resolve('/settings/authentication')"><i class="fas fa-user-lock"></i> Authentication</button>
+        <button class="btn btn-sm btn-primary" onclick="resolve('/settings/apikey')"><i class="fas fa-key"></i> API Key</button>
+    </div>
+    <div class="card-body">
+        <form action="#" method="post">
+            <div class="form-group form-row">
+                <label for="sitename" class="col-sm-2 col-form-label">Site Name</label>
+                <div class="col-sm-10">
+                    <input type="text" name="sitename" id="sitename" class="form-control form-control-sm" placeholder="Site Name">
+                </div>
+            </div>
+            <div class="form-group form-row">
+                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <input type="text" name="email" id="email" class="form-control form-control-sm" placeholder="Email">
+                </div>
+            </div>
+            <div class="form-group form-row">
+                <label for="slogan" class="col-sm-2 col-form-label">Slogan</label>
+                <div class="col-sm-10">
+                    <input type="text" name="slogan" id="slogan" class="form-control form-control-sm" placeholder="Slogan">
+                </div>
+            </div>
+            <div class="form-group form-row">
+                <label for="footer" class="col-sm-2 col-form-label">Footer Message</label>
+                <div class="col-sm-10">
+                    <input type="text" name="footer" id="footer" class="form-control form-control-sm" placeholder="Footer Message">
+                </div>
+            </div>
+            <div class="form-button offset-2">
+                <button type="reset" class="btn btn-sm btn-primary">Cancel</button>
+                <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+{{end}}
