@@ -29,6 +29,7 @@ func main() {
 	http.HandleFunc("/productprofile", productprofile)
 	http.HandleFunc("/addproduct", addproduct)
 	http.HandleFunc("/supplier", supplier)
+	http.HandleFunc("/addsupplier", addsupplier)
 	http.ListenAndServe(":8085", nil)
 }
 
@@ -132,6 +133,15 @@ func addproduct(w http.ResponseWriter, r *http.Request) {
 
 func supplier(w http.ResponseWriter, r *http.Request) {
 	files := append(layoutFiles(), "./mock/supplier.html")
+	t := template.Must(template.ParseFiles(files...))
+	err := t.ExecuteTemplate(w, "bootstrap", nil)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+}
+
+func addsupplier(w http.ResponseWriter, r *http.Request) {
+	files := append(layoutFiles(), "./mock/addsupplier.html")
 	t := template.Must(template.ParseFiles(files...))
 	err := t.ExecuteTemplate(w, "bootstrap", nil)
 	if err != nil {
