@@ -1,0 +1,39 @@
+{{define "forgotpass"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{template "header" .}}
+</head>
+<body>
+<div class="form-login">
+    <div class="card">
+        <div class="card-header">
+           <div class="login-title">
+               <img src="/static/images/lock.png">
+               <div class="title">
+                   <p>Reset Your Password<span>Provide Details</span></p>
+               </div>
+           </div>
+        </div>
+        <div class="card-body">
+            <form action="#" method="post">
+                <div class="form-group input-group-sm">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" class="form-control" placeholder="Email Address">
+                </div>
+                <div class="form-button">
+                    <button type="reset" class="btn btn-sm btn-primary">Clear</button>
+                    <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+                    <a href="#">Try Login</a>
+                </div>
+            </form>
+        </div>
+        <div class="card-footer">
+            <p><b>Other Login Options</b></p>
+            <a href="#"><img src="/static/images/google.png" class="media-link"></a> | <a href="#"><img src="/static/images/facebook.png" class="media-link"></a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+{{end}}

@@ -24,6 +24,7 @@ func main() {
 
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./mock/static"))))
 	http.HandleFunc("/login", login)
+	http.HandleFunc("/reset", resetpass)
 	http.HandleFunc("/", dashboard)
 	http.HandleFunc("/users", users)
 	http.HandleFunc("/usersadd", usersadd)
@@ -54,6 +55,16 @@ func login(w http.ResponseWriter, r *http.Request) {
 	t := template.Must(template.ParseFiles("./mock/layout/header.html", "./mock/login.html"))
 	err := t.ExecuteTemplate(w, "login", Data{
 		Title: "Login",
+	})
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+}
+
+func resetpass(w http.ResponseWriter, r *http.Request) {
+	t := template.Must(template.ParseFiles("./mock/layout/header.html", "./mock/forgotpass.html"))
+	err := t.ExecuteTemplate(w, "forgotpass", Data{
+		Title: "resetpass",
 	})
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
