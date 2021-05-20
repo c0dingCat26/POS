@@ -1,13 +1,3 @@
-/*
- * Title        : StockPile2
- * Author       : Abdul Saqib
- * Version      : 1.0.0
- * Organization : Infected-Engineers (http://Infected-Engineers.in)
- * Website      : https://infected-engineers.in/projects/StockPile2
- * License      : GNU General Public License V3.0
- * License URI  : https://www.gnu.org/licenses/gpl-3.0.txt
-*/
-
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
 @import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:100,100i,300,300i,400,400i,500,500i,700,700i,800,800i,900,900i');
 /*
@@ -247,13 +237,32 @@ nav ul li ul li i {
     margin-right: 20px;
 }
 
-.pagination a {
-    color: #007bff;
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: green;
+    border-color: green;
 }
 
-.pagination .active {
-    background-color: #007bff;
+.page-link {
+    color: green;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
 }
+  
+.page-link:hover {
+    color: green;
+    text-decoration: none;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+}
+  
+.page-link:focus {
+    z-index: 2;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(50, 205, 50, 0.25);
+}
+  
 
 .custom-file-label {
     height: 33px; /* file input height */
@@ -712,6 +721,15 @@ tbody i {
     padding-bottom: 5px;
 }
 
+.media-link {
+    width: 20px;
+    height: 20px;
+}
+
+.media-link-md {
+    width: 30px;
+    height: 30px;
+}
 /*
 ==============================================
              Media Queries

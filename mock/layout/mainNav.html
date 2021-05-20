@@ -1,9 +1,9 @@
 {{define "mainNav"}}
 <div class="logo">
-    <!-- <img src="images/logo.png"> -->
+    <!-- <img src="/static/images/logo.png"> -->
 </div>
 <div class="profile">
-    <img src="images/icon_profile.png">
+    <img src="/static/images/icon_profile.png">
     <div class="profile-desc">
         <p>Abdul Saqib<span><i class="fas fa-circle"></i>Admin</span></p>
     </div>
@@ -21,17 +21,15 @@
         <li><a href="/barcodes"><i class="fas fa-barcode"></i><span>Barcode</span><i class="fas fa-angle-left"></i></a></li>
         <li><a href="/analytics"><i class="fas fa-chart-pie"></i><span>Analytics</span><i class="fas fa-angle-left"></i></a></li>
         <li><a href="/reports"><i class="fas fa-chart-area"></i><span>Reports</span><i class="fas fa-angle-left"></i></a></li>
-        <li><a href="/settings"><i class="fas fa-cogs"></i><span>Settings</span><i class="fas fa-angle-left"></i></a></li>
-        <li><a href="/help"><i class="fas fa-question-circle"></i><span>Help Center</span><i class="fas fa-angle-left"></i></a></li>
+        <li><a href="/settings/general"><i class="fas fa-cogs"></i><span>Settings</span><i class="fas fa-angle-left"></i></a></li>
+        <li><a href="/documentation"><i class="fas fa-question-circle"></i><span>Help Center</span><i class="fas fa-angle-left"></i></a></li>
     </ul>
 </nav>
 <div class="network-manager">
     <div class="network">
-        <a href="#"><i class="fab fa-facebook-square"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fab fa-twitter-square"></i></a>
-        <a href="#"><i class="fab fa-google"></i></a>
-        <!--<a href="#"><i class="fab fa-instagram"></i></a>-->
+        <a href="#"><img src="/static/images/facebook.png" class="media-link-md"></a>
+        <a href="#"><img src="/static/images/twitter.png" class="media-link-md"></a>
+        <a href="#"><img src="/static/images/linkedin.png" class="media-link-md"></a>
     </div>
 </div>
 {{end}}
