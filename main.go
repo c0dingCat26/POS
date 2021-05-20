@@ -52,7 +52,9 @@ func main() {
 
 func login(w http.ResponseWriter, r *http.Request) {
 	t := template.Must(template.ParseFiles("./mock/layout/header.html", "./mock/login.html"))
-	err := t.ExecuteTemplate(w, "login", nil)
+	err := t.ExecuteTemplate(w, "login", Data{
+		Title: "Login",
+	})
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
