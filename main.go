@@ -16,9 +16,9 @@ func main() {
 		panic(err)
 	}
 
-	http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("./mock/static"))))
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./mock/static"))))
 	http.HandleFunc("/login", login)
-	http.HandleFunc("/dashboard", dashboard)
+	http.HandleFunc("/", dashboard)
 	http.HandleFunc("/users", users)
 	http.HandleFunc("/usersadd", usersadd)
 	http.HandleFunc("/userprofile", userprofile)
