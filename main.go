@@ -38,7 +38,7 @@ func main() {
 	http.HandleFunc("/addsupplier", addsupplier)
 	http.HandleFunc("/analytics", analytics)
 	http.HandleFunc("/invoices", invoices)
-	http.HandleFunc("/addinvoice", addinvoice)
+	http.HandleFunc("/invoice", addinvoice)
 	http.HandleFunc("/modifyinvoice", modifyinvoice)
 	http.HandleFunc("/quotations", quotations)
 	http.HandleFunc("/addquotation", addquotation)
@@ -181,7 +181,7 @@ func addproduct(w http.ResponseWriter, r *http.Request) {
 	err := t.ExecuteTemplate(w, "bootstrap", Data{
 		Title: "Add Product",
 		Path:  "Home",
-		Image: "/static/images/icon_product.png",
+		Image: "/static/images/icon_product_add.png",
 	})
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
